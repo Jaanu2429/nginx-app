@@ -58,4 +58,4 @@ jobs:
         run: kubectl --kubeconfig kubeconfig cluster-info
 
       - name: Deploy to Kubernetes
-        run: kubectl --kubeconfig kubeconfig apply -f k8s-deployment.yaml
+        run: kubectl --kubeconfig kubeconfig apply -f k8s-deployment.yml
