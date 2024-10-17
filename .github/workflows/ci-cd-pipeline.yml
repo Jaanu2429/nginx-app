@@ -57,5 +57,14 @@ jobs:
       - name: Get cluster info
         run: kubectl --kubeconfig kubeconfig cluster-info
 
-      - name: Deploy to Kubernetes
-        run: kubectl --kubeconfig kubeconfig apply -f k8s.deployment.yml
+      # Deploy Blue version
+      - name: Deploy Blue version
+        run: kubectl --kubeconfig kubeconfig apply -f nginx-blue-deployment.yaml
+
+      # Deploy Green version
+      - name: Deploy Green version
+        run: kubectl --kubeconfig kubeconfig apply -f nginx-green-deployment.yaml
+
+      # Apply service to point to Blue or Green
+      - name: Deploy Service
+        run: kubectl --kubeconfig kubeconfig apply -f nginx-service.yaml
